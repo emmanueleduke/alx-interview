@@ -1,0 +1,29 @@
+You are given a license key represented as a string s that consists of only alphanumeric characters and dashes. The string is separated into n + 1 groups by n dashes. You are also given an integer k.
+
+We want to reformat the string s such that each group contains exactly k characters, except for the first group, which could be shorter than k but still must contain at least one character. Furthermore, there must be a dash inserted between two groups, and you should convert all lowercase letters to uppercase.
+
+code snippet 
+
+def licenseKeyFormatting(s, k):
+    # Remove dashes and convert to uppercase
+    s = s.replace("-", "").upper()
+
+    # Calculate the length of the first group
+    first_group_len = len(s) % k
+
+    # Initialize the result with the first group
+    result = s[:first_group_len]
+
+    # Add dashes and remaining groups
+    for i in range(first_group_len, len(s), k):
+        if i != 0:
+            result += "-"
+        result += s[i:i + k]
+
+    return result
+
+# Example usage:
+s = "2-4A0r7-4k"
+k = 4
+formatted_license = licenseKeyFormatting(s, k)
+print(formatted_license)

@@ -1,0 +1,1 @@
+ Star Wars API Project is a script that fetches information about Star Wars characters from a specific film using the Star Wars API. It then makes a series of asynchronous HTTP requests to retrieve the character names and finally prints them to the console.
